@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 680 286" role="img" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+<title>Fluxo do agente de seguro auto</title>
+<desc>O usuario conversa pela interface Streamlit, que envia a mensagem ao agente Agno. O agente troca prompt e chamadas de ferramenta com o Claude, executa ferramentas puras que consultam os dados, e le e grava memoria em SQLite, devolvendo a resposta em portugues.</desc>
+<defs>
+<marker id="ah" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto-start-reverse"><path d="M0,0 L6,3 L0,6 Z" fill="#8A8F98"/></marker>
+</defs>
+<style>
+  text { font-size: 14px; fill: #1a1a1a; }
+  .ts { font-size: 12px; fill: #4a4a4a; }
+  .th { font-weight: 600; }
+  .box-gray { fill: #F1F3F5; stroke: #868E96; }
+  .box-blue { fill: #E7F0FB; stroke: #3B7DD8; }
+  .box-coral { fill: #FBEAE5; stroke: #D9614A; }
+</style>
+
+<line x1="150" y1="78" x2="195" y2="78" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="305" y1="78" x2="350" y2="78" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="460" y1="78" x2="505" y2="78" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="405" y1="106" x2="405" y2="185" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="382" y1="106" x2="258" y2="185" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<line x1="460" y1="213" x2="505" y2="213" stroke="#8A8F98" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+<text class="ts" x="172" y="42" text-anchor="middle">conversa</text>
+<text class="ts" x="327" y="42" text-anchor="middle">mensagem</text>
+<text class="ts" x="482" y="42" text-anchor="middle">prompt + tools</text>
+<text class="ts" x="414" y="152" text-anchor="start">executa tool</text>
+<text class="ts" x="300" y="150" text-anchor="middle">memoria</text>
+<text class="ts" x="482" y="180" text-anchor="middle">consulta</text>
+
+<rect class="box-gray" x="40" y="50" width="110" height="56" rx="8"/>
+<text class="th" x="95" y="82" text-anchor="middle">Usuario</text>
+
+<rect class="box-blue" x="195" y="50" width="110" height="56" rx="8"/>
+<text class="th" x="250" y="74" text-anchor="middle">Streamlit</text>
+<text class="ts" x="250" y="91" text-anchor="middle">app.py</text>
+
+<rect class="box-blue" x="350" y="50" width="110" height="56" rx="8"/>
+<text class="th" x="405" y="74" text-anchor="middle">Agente Agno</text>
+<text class="ts" x="405" y="91" text-anchor="middle">agente.py</text>
+
+<rect class="box-coral" x="505" y="50" width="110" height="56" rx="8"/>
+<text class="th" x="560" y="74" text-anchor="middle">Claude</text>
+<text class="ts" x="560" y="91" text-anchor="middle">Haiku 4.5</text>
+
+<rect class="box-blue" x="195" y="185" width="110" height="56" rx="8"/>
+<text class="th" x="250" y="209" text-anchor="middle">Memoria</text>
+<text class="ts" x="250" y="226" text-anchor="middle">SQLite</text>
+
+<rect class="box-blue" x="350" y="185" width="110" height="56" rx="8"/>
+<text class="th" x="405" y="209" text-anchor="middle">Ferramentas</text>
+<text class="ts" x="405" y="226" text-anchor="middle">seguro_tools.py</text>
+
+<rect class="box-blue" x="505" y="185" width="110" height="56" rx="8"/>
+<text class="th" x="560" y="209" text-anchor="middle">Dados</text>
+<text class="ts" x="560" y="226" text-anchor="middle">seguros.py</text>
+
+<rect class="box-gray" x="40" y="262" width="12" height="12" rx="3"/>
+<text class="ts" x="58" y="272" text-anchor="start">pessoa</text>
+<rect class="box-blue" x="130" y="262" width="12" height="12" rx="3"/>
+<text class="ts" x="148" y="272" text-anchor="start">nosso codigo</text>
+<rect class="box-coral" x="270" y="262" width="12" height="12" rx="3"/>
+<text class="ts" x="288" y="272" text-anchor="start">LLM externo</text>
+</svg>
