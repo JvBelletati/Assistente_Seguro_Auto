@@ -3,3 +3,4 @@ anthropic>=0.40
 streamlit>=1.40
 python-dotenv>=1.0
 pytest>=8.0
+sqlalchemy>=2.0
