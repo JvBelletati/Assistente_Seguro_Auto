@@ -1,5 +1,12 @@
 # Assistente de Seguro Auto — Agente de IA
 
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Claude](https://img.shields.io/badge/LLM-Claude%20Haiku%204.5-D97757)
+![Agno](https://img.shields.io/badge/Framework-Agno-000000)
+![Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![Tests](https://img.shields.io/badge/tests-14%20passing-3FB950)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 Agente de IA de atendimento de seguro auto: consulta apólices, verifica coberturas,
 abre e acompanha sinistros, com **memória conversacional**. Construído em **Python** com
 **Claude (Anthropic)** e o framework **Agno**, com interface de chat em **Streamlit**.
@@ -17,6 +24,23 @@ abre e acompanha sinistros, com **memória conversacional**. Construído em **Py
 
 Ideia central: a lógica de negócio (ferramentas) é isolada e testável; o "motor" do agente
 apenas a embrulha. Dá para trocar Agno pelo loop cru sem mexer nas ferramentas.
+
+## Fluxo
+
+```mermaid
+flowchart LR
+    U(["👤 Usuário"]) -->|mensagem| S["🖥️ Streamlit<br/>app.py"]
+    S -->|texto + session_id| AG["🤖 Agente Agno<br/>agente.py"]
+    AG <-->|prompt + histórico<br/>+ tools / tool_use| C["🧠 Claude<br/>Haiku 4.5"]
+    AG -->|executa a tool pedida| T["🔧 Ferramentas puras<br/>tools/seguro_tools.py"]
+    T <--> D[("🗂️ Dados fictícios<br/>data/seguros.py")]
+    T -->|resultado dict| AG
+    AG <-->|histórico + memória| M[("💾 Memória<br/>SQLite")]
+    AG -->|resposta em PT-BR| S --> U
+```
+
+O `core_demo.py` implementa o mesmo ciclo **Agente ⇄ Claude ⇄ Ferramentas** à mão, com o
+SDK da Anthropic, para mostrar o que o Agno faz automaticamente.
 
 ## Como rodar
 
