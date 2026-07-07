@@ -39,6 +39,8 @@ _SINISTROS_INICIAIS = [
 # Estado mutável de runtime.
 _apolices: list[dict] = []
 _sinistros: list[dict] = []
+# Deve começar acima do maior protocolo semeado (SIN-5001) para não colidir.
+# Se adicionar novos sinistros iniciais, ajuste este valor.
 _proximo_num: int = 5002
 
 

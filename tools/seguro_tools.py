@@ -20,7 +20,7 @@ def consultar_apolice(identificador: str) -> dict:
     apolice = seguros.buscar_apolice(identificador)
     if apolice is None:
         return {"erro": f"Nenhuma apólice encontrada para '{identificador}'."}
-    return apolice
+    return dict(apolice)  # cópia defensiva: não expõe o dict interno do "sistema"
 
 
 def verificar_cobertura(apolice_id: str, tipo_evento: str) -> dict:
@@ -81,4 +81,4 @@ def acompanhar_sinistro(protocolo: str) -> dict:
     sinistro = seguros.buscar_sinistro(protocolo)
     if sinistro is None:
         return {"erro": f"Protocolo '{protocolo}' não encontrado."}
-    return sinistro
+    return dict(sinistro)  # cópia defensiva: não expõe o dict interno do "sistema"

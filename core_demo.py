@@ -62,7 +62,8 @@ def main() -> None:
     print(f"Usuário: {pergunta}\n")
 
     # 2) Loop do agente: chama o modelo, executa tools que ele pedir, repete até a resposta final.
-    while True:
+    #    O teto de iterações é uma trava de segurança para não faturar tokens num loop patológico.
+    for _ in range(10):
         resp = client.messages.create(
             model=MODELO,
             max_tokens=1024,

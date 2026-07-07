@@ -57,5 +57,8 @@ def responder(agente: Agent, mensagem: str,
 
 if __name__ == "__main__":
     # Smoke test manual pela linha de comando (requer ANTHROPIC_API_KEY no .env).
-    ag = criar_agente()
+    try:
+        ag = criar_agente()
+    except RuntimeError as e:
+        raise SystemExit(e)  # mensagem limpa em vez de traceback quando falta a chave
     print(responder(ag, "Olá! Meu CPF é 123.456.789-00. Quais são minhas coberturas?"))
